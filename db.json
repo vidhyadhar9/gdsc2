@@ -1,0 +1,92 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "eventname": "apka",
+      "clubname": "unka",
+      "time": "onka",
+      "venue": "pnka"
+    },
+    {
+      "id": "1",
+      "eventname": "apka",
+      "clubname": "unka",
+      "time": "onka",
+      "venue": "pnka"
+    },
+    {
+      "username": "akshaykumardogiparthi21@gmail.com",
+      "password": "ak",
+      "id": "wc-jWaN"
+    },
+    {
+      "username": "akshaykumardogiparthi21@gmail.com",
+      "password": "ak",
+      "id": "h7GTu1i"
+    },
+    {
+      "username": "vvm@gmail.com",
+      "password": "vvm",
+      "id": "dR6ISGm"
+    },
+    {
+      "username": "",
+      "password": "",
+      "id": "vM7KzpA"
+    },
+    {
+      "username": "",
+      "password": "",
+      "id": "waiWLq2"
+    },
+    {
+      "username": "akshaykumardogiparthi21@gmail.com",
+      "password": "ak",
+      "id": "ubBcFVd"
+    },
+    {
+      "username": "akshaykumardogiparthi21@gmail.com",
+      "password": "h",
+      "id": "wfAA2Cx"
+    }
+  ],
+  "participants": [],
+  "events": [
+    {
+      "Eventname": "dshb",
+      "Venue": "bfs",
+      "Time": "2023-03-22",
+      "ClubName": "vsjvkhs",
+      "ClubAdmin": "hdcsou",
+      "PrizeMoney": "sjdvkhds",
+      "id": 1
+    },
+    {
+      "Eventname": "csi",
+      "Venue": "ks",
+      "Time": "",
+      "ClubName": "vsjvkhs",
+      "ClubAdmin": "hdcsou",
+      "PrizeMoney": "sjdvkhds",
+      "id": 2
+    },
+    {
+      "Eventname": "csi",
+      "Venue": "ks",
+      "Time": "2023-03-08",
+      "ClubName": "vsjvkhs",
+      "ClubAdmin": "hdcsou",
+      "PrizeMoney": "sjdvkhds",
+      "id": 3
+    },
+    {
+      "Eventname": "csi",
+      "Venue": "ks",
+      "Time": "2023-03-08",
+      "ClubName": "vsjvkhs",
+      "ClubAdmin": "hdcsou",
+      "PrizeMoney": "sjdvkhds",
+      "id": 4
+    }
+  ]
+}

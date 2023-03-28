@@ -1,23 +1,116 @@
-import logo from './logo.svg';
 import './App.css';
+import {createBrowserRouter,RouterProvider} from 'react-router-dom'
+import Events from './components/Events'
+import Home from './components/Home'
+import Clubs from './components/Clubs'
+import RootLayout from './components/RootLayout';
+import ActivityLog from './components/ActivityLog';
+import AdminLogin from './components/AdminLogin';
+import Acm from './components/Acm'; 
+import Gdsc from './components/Gdsc'; 
+import Two from './components/Two';
+import AdminHome from './components/AdminHome';
+import Three from './components/Three';
+import ClubLeadHome from './components/ClubLeadHome';
 
 function App() {
+  
+  const router = createBrowserRouter([
+    {
+      path:"/",
+      element:<RootLayout/>,
+      children:[
+        //route for Home
+        {
+          path:"/",
+          element:<Home/>
+        },
+       
+        //route for Events
+        {
+          path:"/events",
+          element:<Events/>
+        },
+        //route for ActivityLog
+        {
+          path:"/activitylog",
+          element:<ActivityLog/>
+        },
+        {
+          path:"/adminlog",
+          element:<AdminLogin/>
+        },
+         //route for Clubs
+         {
+          path:"/clubs",
+          element:<Clubs/>,
+          children:[
+            {
+              path:"acm",
+              element:<Acm/>
+            },
+            {
+              path:"gdsc",
+              element:<Gdsc/>
+            }
+          ]
+       },
+      ]
+      
+    },{
+      path:'/two',
+      element:<Two/>,
+      children:[
+         //route for Home
+         {
+          path:"/two",
+          element:<Events/>
+        },
+       {
+        path:"AdminHome",
+        element:<AdminHome/>
+
+       },
+      
+        //route for ActivityLog
+        {
+          path:"activitylog",
+          element:<ActivityLog/>
+        }
+
+      ]
+    },{
+      path:'/three',
+      element:<Three/>,
+      children:[
+         //route for Home
+         {
+          path:"/three",
+          element:<ClubLeadHome/>
+        },
+       
+        //route for Events
+        {
+          path:"events",
+          element:<Events/>
+        },
+        //route for ActivityLog
+        {
+          path:"activitylog",
+          element:<ActivityLog/>
+        }
+
+      ]
+    }
+
+  ])
+
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div >
+         {/*Provide Browse router */}
+         <RouterProvider router={router}/>
     </div>
   );
 }

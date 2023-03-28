@@ -1,0 +1,6 @@
+.footer{
+    min-width: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-image: linear-gradient(#fbfbfb,#e7dcab,#d7d4c6);
+}
