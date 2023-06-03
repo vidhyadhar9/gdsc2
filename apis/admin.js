@@ -13,7 +13,6 @@ adminapp.get('/get-admin-details' , (request, response ) =>{
     adminCollectionObj.find().toArray()
     .then((adminDetails)=>{
         console.log(adminDetails)
-        
         response.send({
             message:"Admin details" , 
             payload: adminDetails

@@ -1,0 +1,39 @@
+.booking {
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .booking h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .slot-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  
+  .slot {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .slot.available {
+    background-color: #a0e8af;
+  }
+  
+  .slot.booked {
+    background-color: #ffc4c4;
+  }
+  
+  .slot:hover {
+    background-color: #e1e1e1;
+  }
+  

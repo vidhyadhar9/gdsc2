@@ -1,23 +1,29 @@
 const exp=require('express')
+const cors = require('cors')
 const app = exp()
-app.listen(3500 , ()=>{console.log("Server Running on 3500 port")})
+
+app.use(cors())
+
+app.listen(5000 , ()=>{console.log("Server Running on 3500 port")})
 
 //CONNECT TO DATABASE
 //import mongo Client
 const mClient = require('mongodb').MongoClient
 //connect ot Mongo server
-mClient.connect('mongodb://127.0.0.1/27017')
+mClient.connect('mongodb://127.0.0.1:27017')
 .then((dbRef)=>{
     const eventManageDbObj = dbRef.db('eventmanage')
     const eventsCollectionObj = eventManageDbObj.collection('events');
     const clubsCollectionObj = eventManageDbObj.collection('clubs');
     const participantsCollectionObj = eventManageDbObj.collection('participants');
-    const adminCollectionObj = eventManageDbObj.collection('adminData');
+    const adminCollectionObj = eventManageDbObj.collection('admindata');
+    const userCollectionObj = eventManageDbObj.collection('userdata');
 
     app.set("eventsCollectionObj",eventsCollectionObj )
     app.set("clubsCollectionObj",clubsCollectionObj )
     app.set("participantsCollectionObj",participantsCollectionObj )
     app.set("adminCollectionObj",adminCollectionObj )
+    app.set("userCollectionObj",userCollectionObj )
 
     console.log("Database Succecssfully connected!");
 })  
@@ -37,6 +43,10 @@ app.use('/events' , eventsapp);
 
 const participantsapp = require("./apis/participants");
 app.use('/participants', participantsapp);
+
+const LoginDetailsapp = require("./apis/LoginDetails");
+app.use('/LoginDetails', LoginDetailsapp);
+
 
 
 

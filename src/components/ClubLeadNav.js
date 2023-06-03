@@ -25,7 +25,12 @@ function ClubLeadNav() {
                     ActivityLog
                 </Link>
             </li>
-         
+            <li className="nav-item  mx-4">
+                {/*Link for ActivityLog*/}
+                <Link className="nav-link  text-white" to="book">
+                    Booking
+                </Link>
+            </li>
          
            
         </ul> 

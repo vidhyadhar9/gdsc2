@@ -12,6 +12,8 @@ import Two from './components/Two';
 import AdminHome from './components/AdminHome';
 import Three from './components/Three';
 import ClubLeadHome from './components/ClubLeadHome';
+import ClubLeadLogin from './components/ClubLeadLogin';
+import Booking from './components/Booking';
 
 function App() {
   
@@ -40,6 +42,11 @@ function App() {
           path:"/adminlog",
           element:<AdminLogin/>
         },
+        {
+          path:"/clubleadlog",
+          element:<ClubLeadLogin/>
+        },
+       
          //route for Clubs
          {
           path:"/clubs",
@@ -58,7 +65,7 @@ function App() {
       ]
       
     },{
-      path:'/two',
+      path:"/two",
       element:<Two/>,
       children:[
          //route for Home
@@ -80,7 +87,7 @@ function App() {
 
       ]
     },{
-      path:'/three',
+      path:"/three",
       element:<Three/>,
       children:[
          //route for Home
@@ -98,6 +105,10 @@ function App() {
         {
           path:"activitylog",
           element:<ActivityLog/>
+        },
+        {
+          path:"book",
+          element:<Booking/>
         }
 
       ]

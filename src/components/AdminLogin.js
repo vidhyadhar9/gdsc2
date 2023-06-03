@@ -1,50 +1,58 @@
 import { computeHeadingLevel } from '@testing-library/react'
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
 import {useForm} from 'react-hook-form'
 import emailjs from '@emailjs/browser';
 import React, { useRef } from 'react';
 import './AdminLogin.css'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import  { useState } from 'react';
+
 function AdminLogin(){
   const form = useRef(); 
   const navigation=useNavigate();
- let {register,handleSubmit,formState:{errors}}=useForm()
+ let {register,handleSubmit,formState:{errors}}=useForm();
  
-let submitform=(userObj)=>{
-  navigation("/two")
-    fetch("http://localhost:5000/users ",{
+ 
+const [show, setShow] = useState(false);
+
+const handleClose = () => setShow(false);
+const handleShow = () => setShow(true);
+
+let submitform= async (userObj)=>{
+  try{
+    fetch("http://localhost:5000/admin/get-admin-details",{
     method:"POST",
     headers:{
       'content-Type':'application/json',
     },
     body:JSON.stringify(userObj)
     
-})
-.then(res=>res.json())
-.then(message=>console.log(message))
-.catch(err=>console.log("err is",err))
-
-
- let sendEmail = (e) => {
-  e.preventDefault();
-
-  emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form.current, 'YOUR_PUBLIC_KEY')
-    .then((result) => {
-        console.log(result.text);
-    }, (error) => {
-        console.log(error.text);
-    });
-};
+});
+navigation("/two");
+}catch(error){
+  console.error("Error:", error);
 }
 
 
-  return (
-  <div>
+};
 
-    <div className="container">
-        
-        <div className=" card mt-5 p-3 mx-auto cigi" style={{width:'500px',borderRadius:'5%'}}>
-            <div className="col-11 col-sm-8 col-md-6  mx-auto  " >
-            <h1 className="  mb-5 text-center  ">Admin Login Form</h1>
+
+
+
+  return (
+    <>
+      {/* Include the login button in the navbar */}
+      <Button variant="primary" onClick={handleShow}>
+         AdminLog
+      </Button>
+   
+
+    <Modal show={show} onHide={handleClose}>
+      <Modal.Header closeButton>
+        <Modal.Title>Welcome Back!!!</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
                  {/*Form */}
                  
                 <form onSubmit={handleSubmit(submitform)} >
@@ -58,23 +66,25 @@ let submitform=(userObj)=>{
                     </div>
                       
                     <div>
-                            {/*phone number*/}
+                          {/*phone number*/}
                     <label htmlFor="password" className='mb-1'>Password</label>
-                    <input type="tel" id="password" className='form-control mb-3' {...register("password",{required:true})}/>
+                    <input type="password" id="password" className='form-control mb-3' {...register("password",{required:true})}/>
                     {errors.name?.type==="required" && <p className='text-danger'>*is required</p>}
                     
                     </div>
-                  
-  
+                    
+                      <button type="submit" className='btn btn-success mb-3'>Submit</button>
+                    
                    
-                    <button type="submit" className='btn btn-success mb-3'>Submit</button>
 
                 </form>
-            </div>
-        </div>
-    </div>
-    
-    </div>
+        </Modal.Body>
+     
+    </Modal>
+  </>
+   
+
+
 
    
   )

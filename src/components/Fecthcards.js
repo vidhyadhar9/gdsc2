@@ -5,9 +5,9 @@ import {useNavigate} from 'react-router-dom'
 function Fecthcards() {
     let [tdata,setvalue]=useState([])
     useEffect(()=>{
-        fetch("https://jsonplaceholder.typicode.com/photos")
+        fetch(`http://localhost:5000/events/get-events-details`)
         .then((res)=>res.json())
-        .then(data=>setvalue(data))
+        .then(data=>setvalue(data.payload))
         .catch(err=>console.log("err is ",err))
     },[])
   return (
@@ -17,17 +17,14 @@ function Fecthcards() {
         {
             tdata.map((prod,index) => {
                 return  <article className="card m-3" style={{ width: '18rem' }}  >
-                            <img src={prod.url} alt="Sample photo" height="300px"/>
                             <div class="text">
-                            <h5>{prod.id}</h5>
-                            <p>{prod.title}</p>
+                            <h5>{prod.Eventname}</h5>
+                            <p>{prod.ClubName}</p>
                             <button  className="btn btn-primary" >Register</button>
                             </div>
                         </article>
                 })
         }
-        
-        <button className="btn btn-primary" onClick={()=>window.location.reload(true)}>reload</button>
         
        </div>
   )

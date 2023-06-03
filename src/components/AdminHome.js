@@ -5,7 +5,7 @@ function AdminHome() {
   let {register,handleSubmit,formState:{errors}}=useForm()
   let submitform=(userObj)=>{
    
-      fetch("http://localhost:5000/events ",{
+      fetch("http://localhost:5000/events/create-event",{
       method:"POST",
       headers:{
         'content-Type':'application/json',

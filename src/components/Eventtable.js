@@ -12,11 +12,11 @@ function Eventtable() {
   getLists(),[])
 
   let getLists=()=>{
-    axios.get(`http://localhost:5000/events`)
+    axios.get(`http://localhost:5000/events/get-events-details`)
     .then(response=>{
-      console.log(response)
+      console.log(response.data.payload)
           if(response.status===200){
-            setlist(response.data)
+            setlist(response.data.payload)
           }
     })
     .catch(err=>{
@@ -32,9 +32,11 @@ function Eventtable() {
         seterr(err.message)
       }})
   }
+
  
   return (
-
+<>
+{err && <p>{err}</p>}
         <Table striped bordered hover className='mt-5'>
             <thead>
               <tr >
@@ -49,12 +51,13 @@ function Eventtable() {
               </tr>
             </thead>
             <tbody >
+              
             
               {
-                list.map((obj)=>
+                list.map((obj)=>(
    
-                      <tr key={obj.id}>
-                        <td>{obj.id} </td> 
+                      <tr key={parseInt(obj._id)}>
+                        <td>{obj._id} </td> 
                       <td>{obj.Eventname} </td>
                       <td>{obj.Venue} </td>
                       <td>{obj.Time} </td>
@@ -63,12 +66,12 @@ function Eventtable() {
                       <td>{obj.PrizeMoney} </td>
                     </tr>
   
-                   
+                )
                 )
              }
             </tbody>
           </Table>
-  
+</>
   );
 }
 
