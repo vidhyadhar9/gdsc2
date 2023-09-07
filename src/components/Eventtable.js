@@ -5,7 +5,7 @@ import {useEffect,useState} from 'react'
 function Eventtable() {
     
     
-
+ 
     let [list,setlist] = useState([])
     let [err,seterr] = useState([])
     useEffect(()=>

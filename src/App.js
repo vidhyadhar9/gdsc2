@@ -1,5 +1,7 @@
 import './App.css';
 import {createBrowserRouter,RouterProvider} from 'react-router-dom'
+import Login from './components/Login';
+import Signup from './components/Signup';
 import Events from './components/Events'
 import Home from './components/Home'
 import Clubs from './components/Clubs'
@@ -25,6 +27,14 @@ function App() {
         //route for Home
         {
           path:"/",
+          element:<Login/>
+        },
+        {
+          path:"/signup",
+          element:<Signup/>
+        },
+        {
+          path:"/home",
           element:<Home/>
         },
        
@@ -46,7 +56,6 @@ function App() {
           path:"/clubleadlog",
           element:<ClubLeadLogin/>
         },
-       
          //route for Clubs
          {
           path:"/clubs",
