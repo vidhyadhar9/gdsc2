@@ -42,7 +42,7 @@ function Navigationbar() {
           <li className="nav-item mx-4">
             {/* Link for ActivityLog */}
             <Link className="nav-link text-white" to="/activitylog">
-              ActivityLog
+              Activity-Log
             </Link>
           </li>
         </ul>

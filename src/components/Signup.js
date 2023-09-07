@@ -33,7 +33,7 @@ function Signup() {
                <button type="submit" className="btn btn-primary">Submit</button>
             </div>
         </form>
-        <p>have an account <a href="/login">login</a></p>
+        <p>have an account please login here <a href="/login">login</a></p>
     </div>
   )
 }
