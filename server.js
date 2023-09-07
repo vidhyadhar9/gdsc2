@@ -4,7 +4,7 @@ const app = exp()
 
 app.use(cors())
 
-app.listen(5000 , ()=>{console.log("Server Running on 3500 port")})
+app.listen(5000 ,()=>{console.log("Server Running on 3500 port")})
 
 //CONNECT TO DATABASE
 //import mongo Client
@@ -51,13 +51,13 @@ app.use('/LoginDetails', LoginDetailsapp);
 
 
 //Error Handling MiddleWares
-const errorHandlingMW = (error ,request ,response)=>{
+const errorHandlingMW = (error ,req,response)=>{
     console.log("Error in API : ",error)
     response.send({message:"error", payload : error});
 }
 app.use(errorHandlingMW)
 //Invalid Path middlware
-const invalidPathMW = (request , response)=>{
+const invalidPathMW = (req , response)=>{
     console.log("Invalid Path");
     response.send({message:"Invalid Path"});
 }
